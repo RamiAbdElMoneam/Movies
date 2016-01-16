@@ -34,13 +34,13 @@ public class MainActivity extends AppCompatActivity implements MainActivityFragm
     }
 
     @Override
-    public void response(String id, String name, String image, String releaseDate, String overview, String rate) throws ExecutionException, InterruptedException {
+    public void response(Boolean isFirstTime, String id, String name, String image, String releaseDate, String overview, String rate) throws ExecutionException, InterruptedException {
         movieFragment = (MovieDetailsFragment) fragManager.findFragmentById(R.id.movieDetailsContainer);
 
-        if (movieFragment != null && movieFragment.isVisible()) {
+        if (movieFragment != null) {
             movieFragment.getMovieInfo(id, name, image, releaseDate, overview, rate);
 
-        } else {
+        } else if(!isFirstTime){
             Intent movieInfo = new Intent(this, MovieDetailsActivity.class);
             movieInfo.putExtra("Id", id);
             movieInfo.putExtra("Name", name);

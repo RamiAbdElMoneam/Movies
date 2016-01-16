@@ -100,7 +100,7 @@ public class MainActivityFragment extends Fragment {
 
                     try {
                         MovieAttributes movie = allMovies.get(position);
-                        com.response(movie.getId(), movie.getTitle(),
+                        com.response(false , movie.getId(), movie.getTitle(),
                                 movie.getPosterPath(), movie.getReleaseDate(),
                                 movie.getOverview(), movie.getAverageRate());
                     } catch (ExecutionException e) {
@@ -192,7 +192,7 @@ public class MainActivityFragment extends Fragment {
                 }
 
                 MovieAttributes movie = allMovies.get(0);
-                com.response(movie.getId(), movie.getTitle(),
+                com.response(true, movie.getId(), movie.getTitle(),
                         movie.getPosterPath(), movie.getReleaseDate(),
                         movie.getOverview(), movie.getAverageRate());
                 //gridview.setAdapter(new MainActivityFragmentAdapter(getActivity(), allMovies));
@@ -249,7 +249,7 @@ public class MainActivityFragment extends Fragment {
     }
 
     public interface Commenecation {
-        public void response(String id, String name, String image, String releaseDate, String overview, String rate) throws ExecutionException, InterruptedException;
+        public void response(Boolean isFirstTime, String id, String name, String image, String releaseDate, String overview, String rate) throws ExecutionException, InterruptedException;
     }
 }
 
