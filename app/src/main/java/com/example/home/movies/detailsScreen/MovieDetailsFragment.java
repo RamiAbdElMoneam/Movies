@@ -121,6 +121,16 @@ public class MovieDetailsFragment extends Fragment {
         movieInformation.clear();
         reviewsANDTrailers.clear();
 
+        if (id == null){
+
+            movieImage.setBackground(null);
+            movieName.setText("");
+            movieDate.setText("");
+            movieRate.setText("");;
+            movieOverview.setText("");
+            addMovieToFavourite.setBackground(null);
+        }
+
         if (id != null){
             movieInformation.add(new MovieAttributes(id, image, name, overview, rate, releaseDate));
             reviewsANDTrailers.addAll(new GetMovieTrailers().execute(id).get());
@@ -174,8 +184,6 @@ public class MovieDetailsFragment extends Fragment {
             });
 
         }
-
-
     }
     //-----------------------------------------------------------------------------------------------------------------------------------
 }

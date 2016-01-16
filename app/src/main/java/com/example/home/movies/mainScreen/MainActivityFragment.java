@@ -162,12 +162,18 @@ public class MainActivityFragment extends Fragment {
 
                 if (res.getCount() == 0) {
                     // show message
+                    com.response(true, null, null, null, null, null, null);
                     Toast.makeText(getActivity(), "NO FAVOURITE MOVIES!", Toast.LENGTH_SHORT).show();
                 }
 
                 while (res.moveToNext()) {
                     allMovies.add(new MovieAttributes(res.getString(0), res.getString(2), res.getString(1),
                             res.getString(3), res.getString(4), res.getString(5)));
+
+                    MovieAttributes movie = allMovies.get(0);
+                    com.response(true, movie.getId(), movie.getTitle(),
+                            movie.getPosterPath(), movie.getReleaseDate(),
+                            movie.getOverview(), movie.getAverageRate());
                 }
 
                 gridview.setAdapter(imageAdapter = new MainActivityFragmentAdapter(getActivity(), allMovies));

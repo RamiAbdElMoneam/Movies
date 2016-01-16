@@ -40,8 +40,6 @@
     <ImageView
         android:id="@+id/toggleButton"
         android:layout_width="40dp"
-        android:layout_height="40dp"
-        android:textOff=""
-        android:textOn="" />
+        android:layout_height="40dp" />
 
 </LinearLayout>
